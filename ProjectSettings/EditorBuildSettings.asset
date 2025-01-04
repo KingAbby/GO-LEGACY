@@ -8,7 +8,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/menu.unity
     guid: 30e02558a856d9448bd1a888382abcc3
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/monopoly.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/CharacterMenu.unity
+    guid: 32c58514576da064b92719c4ed08bbf6
+  - enabled: 1
+    path: Assets/Scenes/new-monopoly.unity
+    guid: 5613a5689f0ef9541889d6267678a26f
   m_configObjects: {}
