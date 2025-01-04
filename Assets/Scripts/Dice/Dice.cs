@@ -45,8 +45,9 @@ public class Dice : MonoBehaviour
             thrown = true;
             rb.useGravity = true;
             rb.isKinematic = false;
-            rb.AddForce(new Vector3(Random.Range(-1, 1), 1, Random.Range(-1, 1)) * Random.Range(1, 7), ForceMode.Impulse); // Add force for bouncing
+            // rb.AddForce(new Vector3(Random.Range(-1, 1), 1, Random.Range(-1, 1)) * Random.Range(1, 7), ForceMode.Impulse); // Add force for bouncing
             rb.AddTorque(Random.Range(0, 500), Random.Range(0, 500), Random.Range(0, 500));
+            rb.AddForce(new Vector3(Random.Range(0, 500), Random.Range(0, 500), Random.Range(0, 500))); // Add force for bouncing
         }
         // else if (thrown && hasLanded)
         // {
@@ -70,8 +71,9 @@ public class Dice : MonoBehaviour
         thrown = true;
         rb.useGravity = true;
         rb.isKinematic = false;
-        rb.AddForce(new Vector3(Random.Range(-1, 1), 1, Random.Range(-1, 1)) * Random.Range(1, 7), ForceMode.Impulse); // Add force for bouncing
+        // rb.AddForce(new Vector3(Random.Range(-1, 1), 1, Random.Range(-1, 1)) * Random.Range(1, 7), ForceMode.Impulse); // Add force for bouncing
         rb.AddTorque(Random.Range(0, 500), Random.Range(0, 500), Random.Range(0, 500));
+        rb.AddForce(new Vector3(Random.Range(0, 500), Random.Range(0, 500), Random.Range(0, 500))); // Add force for bouncing
     }
 
     void SideValueCheck()

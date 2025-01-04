@@ -74,6 +74,14 @@ public class GameManager : MonoBehaviour
         gameOverPanel.SetActive(false);
         Initialize();
         CameraSwitcher.instance.SwitchToTopDown();
+
+        StartCoroutine(StartGame());
+        OnUpdateMessage.Invoke("Welcome to The Game My Friends!");
+    }
+
+    IEnumerator StartGame()
+    {
+        yield return new WaitForSeconds(3f);
         if (playerList[currentPlayer].playerType == Player.PlayerType.AI)
         {
             // RollDice();
@@ -88,19 +96,42 @@ public class GameManager : MonoBehaviour
 
     void Initialize()
     {
-        // CREATE PLAYERS
-        for (int i = 0; i < playerList.Count; i++)
+        if (GameSettings.settingsList.Count == 0)
         {
+            //Debug.LogError("Start The Game From The Character Menu!");
+            return;
+        }
+
+        foreach (var setting in GameSettings.settingsList)
+        {
+            Player p1 = new Player();
+            p1.name = setting.playerName;
+            p1.playerType = (Player.PlayerType)setting.selectedType;
+
+            playerList.Add(p1);
+
             GameObject infoObject = Instantiate(playerInfoPrefab, playerPanel, false);
             PlayerInfo info = infoObject.GetComponent<PlayerInfo>();
 
-            // RANDOM TOKEN
-            int randomIndex = Random.Range(0, playerTokenList.Count);
-
-            // Instantiate player token
-            GameObject newToken = Instantiate(playerTokenList[randomIndex], gameBoard.route[0].transform.position, Quaternion.identity);
-            playerList[i].Initialize(gameBoard.route[0], startMoney, info, newToken);
+            GameObject newToken = Instantiate(playerTokenList[setting.selectedColor], gameBoard.route[0].transform.position, Quaternion.identity);
+            p1.Initialize(gameBoard.route[0], startMoney, info, newToken);
         }
+        // CREATE PLAYERS
+        // for (int i = 0; i < playerList.Count; i++)
+        // {
+        //     GameObject infoObject = Instantiate(playerInfoPrefab, playerPanel, false);
+        //     PlayerInfo info = infoObject.GetComponent<PlayerInfo>();
+
+        //     // RANDOM TOKEN
+        //     int randomIndex = Random.Range(0, playerTokenList.Count);
+
+        //     // Instantiate player token
+        //     GameObject newToken = Instantiate(playerTokenList[randomIndex], gameBoard.route[0].transform.position, Quaternion.identity);
+        //     playerList[i].Initialize(gameBoard.route[0], startMoney, info, newToken);
+        // }
+
+
+
         playerList[currentPlayer].ActivateSelector(true);
 
         if (playerList[currentPlayer].playerType == Player.PlayerType.HUMAN)
@@ -172,7 +203,7 @@ public class GameManager : MonoBehaviour
         // // ANY ROLL DICE AND STORE THEM
         // rolledDice[0] = Random.Range(1, 7);
         // rolledDice[1] = Random.Range(1, 7);
-        Debug.Log("Rolled dice are: " + rolledDice[0] + " & " + rolledDice[1]);
+        //Debug.Log("Rolled dice are: " + rolledDice[0] + " & " + rolledDice[1]);
 
         //DEBUG
         // if (alwaysDoubleRoll)
@@ -330,7 +361,7 @@ public class GameManager : MonoBehaviour
         if (playerList.Count == 1)
         {
             //THE WINNER
-            Debug.Log(playerList[0].name + " has WON THE GAME!");
+            //Debug.Log(playerList[0].name + " has WON THE GAME!");
             OnUpdateMessage.Invoke(playerList[0].name + " has WON THE GAME!");
             //STOP THE GAME LOOP
 
