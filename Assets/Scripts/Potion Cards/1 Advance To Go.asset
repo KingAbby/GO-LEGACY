@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e08fd913109075942a5b8ce3aa4a56ce, type: 3}
   m_Name: 1 Advance To Go
   m_EditorClassIdentifier: 
-  textOnCard: Advance to Go<br><br><color=white>Collect 200 G Coin</color>
+  textOnCard: Advance to Go<br><br><color=white>Collect 500 G Coin</color>
   rewardMoney: 0
   penalityMoney: 0
   moveToBoardIndex: 0

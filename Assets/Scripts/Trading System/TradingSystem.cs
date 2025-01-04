@@ -79,7 +79,7 @@ public class TradingSystem : MonoBehaviour
             List<MonopolyNode> nodeSet = new List<MonopolyNode>();
             nodeSet.AddRange(list);
             // CHECK IF ALL HAVE BEEN PURCHASED
-            bool notAllPurchased = list.Any(n => n.Owner == null);
+            bool notAllPurchased = list.Any(n => n.Owner != null);
             // AI OWNS THIS FULL SET ALREADY
             if (allSame || processedSet == list || notAllPurchased)
             {
@@ -91,7 +91,7 @@ public class TradingSystem : MonoBehaviour
             if (list.Count == 2)
             {
                 requestedNode = list.Find(n => n.Owner != currentPlayer && n.Owner != null);
-                if (requestedNode != null)
+                if (requestedNode != null && requestedNode.Owner != null && requestedNode.Owner.ReadMoney < CalculateValueOfNode(requestedNode))
                 {
                     // MAKE TRADE OFFER TO THE OWNER OF THE NODE
                     MakeTradeDecision(currentPlayer, requestedNode.Owner, requestedNode);

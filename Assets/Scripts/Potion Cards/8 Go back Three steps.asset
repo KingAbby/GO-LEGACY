@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e08fd913109075942a5b8ce3aa4a56ce, type: 3}
   m_Name: 8 Go back Three steps
   m_EditorClassIdentifier: 
-  textOnCard: Go Back <br>Three Spaces</br>
+  textOnCard: Go Back <br>Three Spaces
   rewardMoney: 0
   penalityMoney: 0
   moveToBoardIndex: -1
