@@ -521,5 +521,11 @@ public class Player
         PotionField.instance.AddBackJailFreeCard();
         OnUpdateMessage.Invoke(name + " used a <color=green>Jail Free Card</color>");
     }
+
+    public void RemovePlayerInfo()
+    {
+        myInfo.gameObject.SetActive(false);
+        myToken.SetActive(false);
+    }
 }
 

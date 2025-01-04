@@ -180,7 +180,7 @@ public class MonopolyNode : MonoBehaviour
     {
         if (ownerBar != null)
         {
-            if (owner.name != "")
+            if (owner != null && owner.name != "")
             {
                 ownerBar.SetActive(true);
                 ownerText.text = owner.name;
@@ -235,7 +235,7 @@ public class MonopolyNode : MonoBehaviour
                 else//Human Player
                 {
                     //IF IT OWNED AND WERE NOT THE OWNER AND IS NOT MORTGAGED
-                    if (owner.name != "" && owner != currentPlayer && !isMortgaged)
+                    if (owner.name != "" && owner != currentPlayer && !isMortgaged && owner != null)
                     {
                         //PAY RENT
 

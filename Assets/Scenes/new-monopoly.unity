@@ -4096,13 +4096,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 160239926}
-  m_LocalRotation: {x: 0, y: 0, z: 0.38268343, w: 0.92387956}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.60226, y: 0.60226, z: 0.60226}
+  m_LocalScale: {x: 1.0493778, y: 1.0493778, z: 1.0493778}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 264918395}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 45}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -2.9}
@@ -4128,7 +4128,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 778db1517e8aa7949b5f978e2e6b07f6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b517ac6a69de9b147a53592b53c2dd81, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5614,18 +5614,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1959488317}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
       - m_Target: {fileID: 1641525004}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -9628,7 +9616,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 327603248}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 691818483}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: MainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &327603248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19259,7 +19259,7 @@ MonoBehaviour:
   maxTurnsInJail: 3
   startMoney: 2000
   goMoney: 200
-  secondsBetweenTurns: 3
+  secondsBetweenTurns: 2
   playerInfoPrefab: {fileID: 7102743377231036093, guid: ac62c4d120b1d084db187fed05da1288, type: 3}
   playerPanel: {fileID: 1151281584}
   playerTokenList:
@@ -27514,7 +27514,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.016520834, y: 0.026851848}
   m_AnchorMax: {x: 0.9915209, y: 0.87214816}
-  m_AnchoredPosition: {x: -7.59375, y: -2.1140137}
+  m_AnchoredPosition: {x: -7.59375, y: -2.1140442}
   m_SizeDelta: {x: -14.253, y: -4.2279}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &964589446
@@ -38113,7 +38113,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1377131994}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 691818483}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: RestartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1377131994
 MonoBehaviour:
   m_ObjectHideFlags: 0

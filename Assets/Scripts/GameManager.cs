@@ -301,36 +301,35 @@ public class GameManager : MonoBehaviour
     {
         CameraSwitcher.instance.SwitchToTopDown();
         currentPlayer++;
-        //RESET DICE HAS ROLLED
-        hasRolledDice = false;
 
-        // ROLL DOUBLE?
-        doubleRollCount = 0;
-
-        // OVERFLOW CHECK
+        // Ensure the index wraps correctly after a player is removed
         if (currentPlayer >= playerList.Count)
         {
             currentPlayer = 0;
         }
+
+        // RESET DICE HAS ROLLED
+        hasRolledDice = false;
+
+        // RESET DOUBLE ROLL COUNT
+        doubleRollCount = 0;
+
         DeactivateStaff();
         playerList[currentPlayer].ActivateSelector(true);
-        // CHECK IF IN JAIL
 
-        // IF AI PLAYER
+        // AI or Human logic
         if (playerList[currentPlayer].playerType == Player.PlayerType.AI)
         {
-            // RollDice();
             RollPhysicalDice();
-
             OnShowHumanPanel.Invoke(false, false, false, false, false);
         }
-        else // IF HUMAN - SHOW UI
+        else
         {
             bool jail1 = playerList[currentPlayer].HasChanceJailFreeCard;
             bool jail2 = playerList[currentPlayer].HasCommunityJailFreeCard;
             OnShowHumanPanel.Invoke(true, true, false, jail1, jail2);
         }
-    }
+}
 
     public List<int> LastRolledDice => rolledDice;
 
@@ -351,8 +350,26 @@ public class GameManager : MonoBehaviour
     //----------------------------------GAMEOVER----------------------------------------------------------------
     public void RemovePlayer(Player player)
     {
+        int removedPlayerIndex = playerList.IndexOf(player);
         playerList.Remove(player);
-        //CHECK FOR GAME OVER
+
+        if (removedPlayerIndex == currentPlayer)
+        {
+            // if last player remove
+            if (currentPlayer >= playerList.Count)
+            {
+                currentPlayer++;
+            }
+            else
+            {
+                currentPlayer--;        
+            }
+        }
+
+        // REMOVE FROM UI
+        player.RemovePlayerInfo();
+
+        // CHECK FOR GAME OVER
         CheckForGameOver();
     }
 
@@ -368,6 +385,11 @@ public class GameManager : MonoBehaviour
             //SHOW UI
             gameOverPanel.SetActive(true);
             winnerNameText.text = playerList[0].name;
+        }
+        else
+        {
+            //SWITCH PLAYER
+            Continue();
         }
     }
 
@@ -432,5 +454,15 @@ public class GameManager : MonoBehaviour
         buttonText.text = isHumanPanelVisible ? "HIDE PANEL" : "SHOW PANEL";
         buttonText.color = isHumanPanelVisible ? Color.red : Color.green;
         // Debug.Log(buttonText); // Assuming you want to log the text, replace this with actual UI text update if needed
+    }
+
+    public void RestartGame()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("new-monopoly");
+    }
+
+    public void MainMenu()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("menu");
     }
 }
