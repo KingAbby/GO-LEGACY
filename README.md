@@ -1,4 +1,4 @@
-# GOLEGACY 
+# GO-LEGACY 
 
 is a Monopoly game based on Unity Engine developed as a final project for the Computer Graphics
 Animation course at Universitas Multimedia Nusantara. As the UI and gameplay designer, I focused on creating
